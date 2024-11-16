@@ -23,7 +23,7 @@ const client = new Client({
 }); //Guilds, GuildMembers : REQUIRED
 const config = require('../config.json');
 const fs = require('fs');
-const eventsHandler = require('./functions/handlers/handelEvents');
+const { eventsHandler } = require('./functions/handlers/handelEvents');
 const path = require('path');
 const {checkMissingIntents} = require('./functions/handlers/requiredIntents');
 const {antiCrash} = require('./functions/handlers/antiCrash');
