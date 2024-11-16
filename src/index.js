@@ -21,14 +21,14 @@ const client = new Client({
     ],
 
 }); //Guilds, GuildMembers : REQUIRED
-const config = require('./config.json');
+const config = require('../config.json');
 const fs = require('fs');
-const eventsHandler = require('./src/functions/handlers/handelEvents');
+const eventsHandler = require('./functions/handlers/handelEvents');
 const path = require('path');
-const {checkMissingIntents} = require('./src/functions/handlers/requiredIntents');
-const {antiCrash} = require('./src/functions/handlers/antiCrash');
+const {checkMissingIntents} = require('./functions/handlers/requiredIntents');
+const {antiCrash} = require('./functions/handlers/antiCrash');
 antiCrash();
-require('./src/functions/handlers/watchFolders');
+require('./functions/handlers/watchFolders');
 
 const eventsPath = './events';
 
@@ -52,7 +52,7 @@ function logErrorToFile(errorMessage) {
     try {
         await client.login(config.bot.token);
         console.log('SUCCESS: ' + 'Bot logged in successfully!');
-        require('./admin/dashboard')
+        require('../admin/dashboard')
 
 
         await eventsHandler(client, path.join(__dirname, eventsPath));
